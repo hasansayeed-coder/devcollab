@@ -1,5 +1,5 @@
-import dotenv from 'dotenv';
-dotenv.config();
+import dotenv from 'dotenv'
+dotenv.config()
 
 const required = [
   'DATABASE_URL',
@@ -10,12 +10,11 @@ const required = [
   'CLOUDINARY_CLOUD_NAME',
   'CLOUDINARY_API_KEY',
   'CLOUDINARY_API_SECRET',
-  'REDIS_URL',
-];
+]
 
 for (const key of required) {
   if (!process.env[key]) {
-    throw new Error(`Missing required environment variable: ${key}`);
+    throw new Error(`Missing required environment variable: ${key}`)
   }
 }
 
@@ -39,6 +38,6 @@ export const env = {
     apiKey: process.env.CLOUDINARY_API_KEY!,
     apiSecret: process.env.CLOUDINARY_API_SECRET!,
   },
-  redisUrl: process.env.REDIS_URL!,
+  redisUrl: process.env.REDIS_URL || '',
   clientUrl: process.env.CLIENT_URL || 'http://localhost:5173',
-};
+}
